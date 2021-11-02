@@ -6,10 +6,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  FirebaseMessaging.onBackgroundMessage((message) async {
-    print("Background message is received! ${message.notification!.body}");
-  });
-
   runApp(MyApp());
 }
 
@@ -42,19 +38,27 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     messaging = FirebaseMessaging.instance;
+
+    //Print token for firebase message test
     messaging.getToken().then((value) {
       print("Token is: $value");
     });
+
+    //Print message in terminal
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("Message Received");
       print("Message is : ${event.notification!.body}");
 
+      //Show alert dialog
       showDialog(
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text("Notification"),
-              content: Text(event.notification!.body!),
+              content: Text(
+                event.notification!.body!,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -70,13 +74,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  int _counter = 0;
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,19 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              'Tester for pop up notification',
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }

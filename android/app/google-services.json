@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "543626017454",
+    "project_id": "lai-hock-chun-exercise-7",
+    "storage_bucket": "lai-hock-chun-exercise-7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543626017454:android:9f1c233c8a971ef89c8b3f",
+        "android_client_info": {
+          "package_name": "com.example.lai_hock_chun_exercise_6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543626017454-alejing6s6qglpdrsm3p4ftr03rocfkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCagAX93tLZDKWzf5uEsJeXzmSt0OHNjrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543626017454-alejing6s6qglpdrsm3p4ftr03rocfkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
